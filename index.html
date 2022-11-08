@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #happyTicket, #yourString, #shortestWord, #pairDna {
+            color: brown;
+            font-weight: 600;
+        }
+    </style>
     <title>SoftServe_Homework_Loops</title>
 </head>
 <body>
+    <h1>Вправи</h1>
+    <h2>NORMAL</h2>
+    <h3>Щасливий квиток</h3>
+    <p>Напишіть веб-додаток для розрахунку щасливого квитка. Користувач вводить шестизначний номер квитка (трамвай/тролейбус).
+    Визначте, чи дорівнює сума перших трьох цифр сумі останніх трьох цифр. Виведіть повідомлення про "щасливість" квитка
+    користувачеві.</p>
+    <p id="happyTicket"></p>
     
+    <h3>Найкоротше слово</h3>
+    <p>Напишіть програму, що отримує у користувача рядок слів та повертає довжину найкоротшого.</p>
+    
+    <ul>Приклад:</ul>
+    <li>"bitcoin take over the world maybe who knows perhaps" --> 3</li>
+    <li>"turns out random test cases are easier than writing out basic ones" --> 3</li>
+    <li>"lets talk about javascript the best language" --> 3</li>
+    <li>"i want to travel the world writing code one day" --> 1</li>
+    <li>"Lets all go on holiday somewhere very cold" --> 2</li>
+    <p id="yourString"></p>
+    <p id="shortestWord"></p>
+    
+    <h3>ДНК</h3>
+    <p>Дезоксирибонуклеїнова кислота (ДНК) — це хімічна речовина, що міститься в ядрі клітин і несе «інструкції» для розвитку
+    та функціонування живих організмів.</p>
+    <p>Якщо ви хочете дізнатися <a href="http://en.wikipedia.org/wiki/DNA">більше.</a></p>
+    <p>У рядках ДНК символи «А» і «Т» доповнюють один одного, як «С» і «G». Напишіть програму, яка питає у користувача рядок з
+    однією стороною ДНК - вам потрібно отримати іншу комплементарну сторону. Нитку ДНК ніколи не буває порожнім або ДНК
+    взагалі немає.</p>
+    <ul>Приклад:</ul>
+    <li>"ATTGC" // повертає "TAACG"</li>
+    <li>"GTAT" // повертає "CATA"</li>
+    <p id="pairDna"></p>
+
    <script src="script.js"></script> 
 </body>
 </html>
