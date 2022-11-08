@@ -11,7 +11,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        #happyTicket, #yourString, #shortestWord, #pairDna {
+        #happyTicket, #yourString, #shortestWord, #pairDna, #yourPlace {
             color: brown;
             font-weight: 600;
         }
@@ -50,6 +50,40 @@
     <li>"ATTGC" // повертає "TAACG"</li>
     <li>"GTAT" // повертає "CATA"</li>
     <p id="pairDna"></p>
+
+    <h2>HARD</h2>
+    <h3>Секретний вагон</h3>
+    <p>Створіть веб-додаток для визначення купе в плацкартному вагоні за номером квитка. Користувач вводить номер місця,
+    вивести йому номер купе, тип місця - бічне чи ні, верхнє чи нижнє. Ускладнення, якщо завдання здалося занадто легким:
+    Виконайте без оператора множинного вибору і з мінімальною кількістю операторів умови.</p>
+    <p id="yourPlace"></p>
+    
+    <h3>Калькулятор</h3>
+    <p>Написати функцію – калькулятор. Функція приймає рядок з прикладом, визначає, яка дія необхідна виконати (+ - * /),
+    переводить операнди у числа, вирішує приклад та повертає результат.</p>
+    <ul>
+    <li>calc(12, 4, '+') //16</li>
+    <li>calc(1, 4, '-') //-3</li>
+    <li>calc(12, 5, '/') //2.4</li>
+    <li>calc(1.2, 3, '*') //3.6</li>
+    </ul>
+
+    <h3>Tic-Tac-Toe Checker</h3>
+    <p>If we were to set up a Tic-Tac-Toe game, we would want to know whether the board's current state is solved, wouldn't we?
+    Our goal is to create a function that will check that for us!</p>
+    <p>Assume that the board comes in the form of a 3x3 array, where the value is 0 if a spot is empty, 1 if it is an "X", or 2
+    if it is an "O", like so:
+    [[0, 0, 1],</br>
+    [0, 1, 2],</br>
+    [2, 1, 0]]</br></p>
+    <p>We want our function to return:
+    <ul>
+    <li>-1 if the board is not yet finished (there are empty spots and no winners),</li>
+    <li>1 if "X" won,</li>
+    <li>2 if "O" won,</li>
+    <li>0 if it's a cat's game (i.e. a draw, all spots are filled).</li>
+    </ul>
+    You may assume that the board passed in is valid in the context of a game of Tic-Tac-Toe.</p>
 
    <script src="script.js"></script> 
 </body>

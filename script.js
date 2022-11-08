@@ -53,3 +53,25 @@ for (let i = 0; i < userDna.length; i++) {
 
 document.querySelector("#pairDna").innerHTML = `Пара до вашої ДНК: ${result}.`
 
+// Секретний вагон
+
+const yourPlace = +prompt(`Введіть номер свого місця (від 1 до 54).`);
+let compartmentNumber = 0;
+
+if (yourPlace % 2 !== 0 && yourPlace <= 36) {
+    compartmentNumber = Math.floor((yourPlace - 1) / 4 + 1);
+    document.querySelector("#yourPlace").innerHTML = `У вас нижнє не бокове місце у купе №${compartmentNumber}.`
+
+} else if (yourPlace % 2 !== 0 && yourPlace > 36) {
+    compartmentNumber = Math.floor((54 - yourPlace) / 2 + 1);
+    document.querySelector("#yourPlace").innerHTML = `У вас нижнє бокове місце у купе №${compartmentNumber}.`
+
+} else if (yourPlace % 2 === 0 && yourPlace <= 36) { 
+    compartmentNumber = Math.floor((yourPlace - 1) / 4 + 1);
+    document.querySelector("#yourPlace").innerHTML = `У вас верхнє не бокове місце у купе №${compartmentNumber}.`
+
+} else {
+    compartmentNumber = Math.floor((54 - yourPlace) / 2 + 1);
+    document.querySelector("#yourPlace").innerHTML = `У вас верхнє бокове місце у купе №${compartmentNumber}.`
+}
+
