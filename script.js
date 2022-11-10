@@ -112,8 +112,8 @@ if (newGameArray.includes(0)) {
     console.log(`-1: гра триває!`);    
 } else {   
     for (const num of newGameArray) {
-        if (num === 1) sumX = sumX + 1;
-        if (num === 2) sumO = sumO + 1;
+        if (num === 1) sumX++;
+        if (num === 2) sumO++;
     }
     if (sumX + sumO === 9 && sumX > sumO) console.log(`1: Х виграв!`);
     if (sumX + sumO === 9 && sumX < sumO) console.log(`2: 0 виграв!`);
