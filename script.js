@@ -15,9 +15,9 @@ for (let i = 0, j = 3; i < 3; i++, j++) {
 }
 
 if (firstPart === secondPart) {
-    document.querySelector("#happyTicket").innerHTML = `Вітаємо! Ваш квиток щасливий :)`
+    document.querySelector("#happyTicket").innerHTML = `Номер вашого квитка: ${userTicket}. Вітаємо! Це щасливий квиток :)`
 } else { 
-    document.querySelector("#happyTicket").innerHTML = `Упс... Ваш квиток нещасливий :( Купіть інший квиток!`
+    document.querySelector("#happyTicket").innerHTML = `Номер вашого квитка: ${userTicket}. Упс... Ваш квиток нещасливий :( Купіть інший!`
 }
 
 // 2. Найкоротше слово
@@ -61,7 +61,7 @@ for (let i = 0; i < userDna.length; i++) {
     }
 }
 
-document.querySelector("#pairDna").innerHTML = `Пара до вашої ДНК: ${result}.`
+document.querySelector("#pairDna").innerHTML = `Ви ввели комбінацію: ${userDna}. Пара до такої ДНК: ${result}.`
 
 // 4. Секретний вагон
 
