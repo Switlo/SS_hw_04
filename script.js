@@ -1,6 +1,6 @@
 `use strict`;
 
-// Щасливий квиток
+// 1. Щасливий квиток
 
 const userTicket = prompt(`Введіть 6 цифр вашого квитка`);
 
@@ -20,7 +20,7 @@ if (firstPart === secondPart) {
     document.querySelector("#happyTicket").innerHTML = `Упс... Ваш квиток нещасливий :( Купіть інший квиток!`
 }
 
-// Найкоротше слово
+// 2. Найкоротше слово
 
 const yourString = prompt(`Введіть вислів розміром до 10 слів`);
 const stringArray = yourString.split(" ");
@@ -43,7 +43,7 @@ for (i = 1; i < stringArray.length; i++) {
 document.querySelector("#yourString").innerHTML = `Ви ввели такий рядок: ${yourString}.`;
 document.querySelector("#shortestWord").innerHTML = `Кількість літер у найкоротшому слові: ${lettersNumber}. Ось ці слова: ${shortestWords}.`
 
-// ДНК
+// 3. ДНК
 
 const userDna = prompt(`Напишіть першу частину Дезоксирибонуклеїнової кислоти у ДНК людини (комбінація з 4-х літер: A, C, G, T)`);
 
@@ -63,7 +63,7 @@ for (let i = 0; i < userDna.length; i++) {
 
 document.querySelector("#pairDna").innerHTML = `Пара до вашої ДНК: ${result}.`
 
-// Секретний вагон
+// 4. Секретний вагон
 
 const yourPlace = +prompt(`Введіть номер свого місця (від 1 до 54).`);
 let compartmentNumber = 0;
@@ -85,25 +85,21 @@ if (yourPlace % 2 !== 0 && yourPlace <= 36) {
     document.querySelector("#yourPlace").innerHTML = `У вас верхнє бокове місце у купе №${compartmentNumber}.`
 }
 
-// Калькулятор
+// 5. Калькулятор
 
-// const string = prompt(`Введіть послідовно через пробіл два числа та дію, яку з ними потрібно виконати (/, *, + чи -)`);
+const string = prompt(`Введіть послідовно через пробіл два числа та дію, яку з ними потрібно виконати (/, *, + чи -)`);
 
-// let array = string.split(" ");
-// let lastElement = array.pop();
-// let secondElement = array.pop();
+let array = string.split(" ");
+let firstElement = array[1];
+let secondElement = array[2];
 
-// let arrayNew = array.push(lastElement, secondElement);
+array.splice(1, 2, secondElement, firstElement);
 
-// let stringNew = arrayNew.join(" ");
+let result2 = eval(array.join(" "));
 
-// let result2 = eval(stringNew);
+console.log(array.join(" "));
 
-// document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`
+document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`
 
-// let newArray = string.split("");
-// let newArray2 = newArray.splice(1, 2, newArray[2], newArray[1]);
-
-// let array1 = array.replace(array[2], array[1]);
-// let array2 = array1.replace(array1[1], array[2]);
+// 6. Tic-Tac-Toe Checker
 
