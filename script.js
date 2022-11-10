@@ -97,9 +97,27 @@ array.splice(1, 2, secondElement, firstElement);
 
 let result2 = eval(array.join(" "));
 
-console.log(array.join(" "));
-
-document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`
+document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`;
 
 // 6. Tic-Tac-Toe Checker
 
+const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
+
+const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
+
+let sumX = 0;
+let sumO = 0;
+    
+if (newGameArray.includes(0)) {
+    console.log(`-1: гра триває!`);    
+} else {   
+    for (const num of newGameArray) {
+        if (num === 1) sumX = sumX + 1;
+        if (num === 2) sumO = sumO + 1;
+    }
+    if (sumX + sumO === 9 && sumX > sumO) console.log(`1: Х виграв!`);
+    if (sumX + sumO === 9 && sumX < sumO) console.log(`2: 0 виграв!`);
+    if (sumX + sumO === 9 && sumX === sumO) console.log(`0: Нічия!`); // НЕ МОЖЕ БУТИ! ))
+}
+
+// document.querySelector("#winner").innerHTML = `-1: гра триває!`;
