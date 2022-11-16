@@ -122,11 +122,21 @@ switch (array[2]) {
 
 document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`;
 
+// ----- третій варіант (з уроку): через функцію
+
+// function calc(x, y, operator) {
+//   if (operator === "+") return x + y;
+//   if (operator === "-") return x - y;
+//   if (operator === "*") return x * y;
+//   if (operator === "/") return x / y;
+// }
+// console.log(calc(2, 3, "*"));
+
 // 6. Tic-Tac-Toe Checker
 
-const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
-
 // ----- варіант, коли рахує суми "нуликів" та "хрестиків"
+
+// const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
 
 // const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
 
@@ -149,8 +159,97 @@ const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
 
 // ------ правильний варіант гри
 
+const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
+
 const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
 
 if (newGameArray.includes(0)) {
     console.log(`-1: гра триває!`);
+} else {
+
+if (newGameArray[0] == newGameArray[1] && newGameArray[1] == newGameArray[2] && newGameArray[2] == 1 ||
+    newGameArray[3] == newGameArray[4] && newGameArray[4] == newGameArray[5] && newGameArray[5] == 1 ||
+    newGameArray[6] == newGameArray[7] && newGameArray[7] == newGameArray[8] && newGameArray[8] == 1 ||
+    newGameArray[0] == newGameArray[3] && newGameArray[3] == newGameArray[6] && newGameArray[6] == 1 ||
+    newGameArray[1] == newGameArray[4] && newGameArray[4] == newGameArray[7] && newGameArray[7] == 1 ||
+    newGameArray[2] == newGameArray[5] && newGameArray[5] == newGameArray[8] && newGameArray[8] == 1 ||
+    newGameArray[0] == newGameArray[4] && newGameArray[4] == newGameArray[8] && newGameArray[8] == 1 ||
+    newGameArray[2] == newGameArray[4] && newGameArray[4] == newGameArray[6] && newGameArray[6] == 1)
+{ 
+    console.log(`1: Х виграв!`);
 }
+
+if (newGameArray[0] == newGameArray[1] && newGameArray[1] == newGameArray[2] && newGameArray[2] == 2 ||
+    newGameArray[3] == newGameArray[4] && newGameArray[4] == newGameArray[5] && newGameArray[5] == 2 ||
+    newGameArray[6] == newGameArray[7] && newGameArray[7] == newGameArray[8] && newGameArray[8] == 2 ||
+    newGameArray[0] == newGameArray[3] && newGameArray[3] == newGameArray[6] && newGameArray[6] == 2 ||
+    newGameArray[1] == newGameArray[4] && newGameArray[4] == newGameArray[7] && newGameArray[7] == 2 ||
+    newGameArray[2] == newGameArray[5] && newGameArray[5] == newGameArray[8] && newGameArray[8] == 2 ||
+    newGameArray[0] == newGameArray[4] && newGameArray[4] == newGameArray[8] && newGameArray[8] == 2 ||
+    newGameArray[2] == newGameArray[4] && newGameArray[4] == newGameArray[6] && newGameArray[6] == 2)
+{ 
+    console.log(`2: 0 виграв!`);
+}
+
+if (newGameArray[0] != newGameArray[1] != newGameArray[2] &&
+    newGameArray[3] != newGameArray[4] != newGameArray[5] &&
+    newGameArray[6] != newGameArray[7] != newGameArray[8] &&
+    newGameArray[0] != newGameArray[3] != newGameArray[6] &&
+    newGameArray[1] != newGameArray[4] != newGameArray[7] &&
+    newGameArray[2] != newGameArray[5] != newGameArray[8] &&
+    newGameArray[0] != newGameArray[4] != newGameArray[8] &&
+    newGameArray[2] != newGameArray[4] != newGameArray[6])
+{ 
+    console.log(`0: Нічия!`);
+    }
+}
+
+// ----- правильний варіант гри (з уроку): через функції
+
+function isSolved(board) {
+  function checkHor() {
+    //undefined, 1, 2
+    let result;
+    board.forEach(function (item) {
+      if (item[0] != 0 && item[0] == item[1] && item[0] == item[2])
+        result = item[0];
+    });
+    return result;
+  }
+
+  function checkVer() {
+    //undefined, 1, 2
+    for (let a = 0; a < 3; a++) {
+      if (
+        board[0][a] != 0 &&
+        board[0][a] == board[1][a] &&
+        board[1][a] == board[2][a]
+      )
+        return board[0][a];
+    }
+  }
+
+  function checkA1() {
+    //undefined, 1, 2
+    const isMiddleNonZero = board[1][1] != 0;
+    const isMainDiagSolve =
+      board[0][0] == board[1][1] && board[1][1] == board[2][2];
+    const isSecondDiagSolve =
+      board[0][2] == board[1][1] && board[1][1] == board[2][0];
+
+    if (isMiddleNonZero && (isMainDiagSolve || isSecondDiagSolve))
+      return board[1][1];
+  }
+
+  function gameOver() {
+    for (let x = 0; x < 3; x++)
+      for (let y = 0; y < 3; y++) if (board[x][y] == 0) return -1;
+
+    return 0;
+  }
+
+  return checkHor() || checkVer() || checkA1() || gameOver();
+}
+
+isSolved([[0, 0, 1], [0, 1, 2], [2, 1, 0]]);
+
