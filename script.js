@@ -89,13 +89,36 @@ if (yourPlace % 2 !== 0 && yourPlace <= 36) {
 
 const string = prompt(`Введіть послідовно через пробіл два числа та дію, яку з ними потрібно виконати (/, *, + чи -)`);
 
+// ------ перший варіант: із використанням eval()
+// let array = string.split(" ");
+// let firstElement = array[1];
+// let secondElement = array[2];
+
+// array.splice(1, 2, secondElement, firstElement);
+
+// let result2 = eval(array.join(" "));
+
+// ------ другий варіант: через switch()
+
 let array = string.split(" ");
-let firstElement = array[1];
-let secondElement = array[2];
+let firstElement = +array[0];
+let secondElement = +array[1];
 
-array.splice(1, 2, secondElement, firstElement);
+let result2 = 0;
 
-let result2 = eval(array.join(" "));
+switch (array[2]) { 
+    case "-":
+        result2 = firstElement - secondElement;
+        break;
+    case "*":
+        result2 = firstElement * secondElement;
+        break;
+    case "+":
+        result2 = firstElement + secondElement;
+        break;
+    case "/":
+        result2 = firstElement / secondElement;
+}
 
 document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Результат: ${result2}.`;
 
@@ -103,21 +126,31 @@ document.querySelector("#answer").innerHTML = `Ви ввели: ${string}. Ре�
 
 const userGameArray = [[0, 0, 1], [0, 1, 2], [2, 1, 0]];
 
-const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
+// ----- варіант, коли рахує суми "нуликів" та "хрестиків"
 
-let sumX = 0;
-let sumO = 0;
+// const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
+
+// let sumX = 0;
+// let sumO = 0;
     
-if (newGameArray.includes(0)) {
-    console.log(`-1: гра триває!`);    
-} else {   
-    for (const num of newGameArray) {
-        if (num === 1) sumX++;
-        if (num === 2) sumO++;
-    }
-    if (sumX + sumO === 9 && sumX > sumO) console.log(`1: Х виграв!`);
-    if (sumX + sumO === 9 && sumX < sumO) console.log(`2: 0 виграв!`);
-    if (sumX + sumO === 9 && sumX === sumO) console.log(`0: Нічия!`); // НЕ МОЖЕ БУТИ! ))
-}
+// if (newGameArray.includes(0)) {
+//     console.log(`-1: гра триває!`);
+// } else {
+//     for (const num of newGameArray) {
+//         if (num === 1) sumX++;
+//         if (num === 2) sumO++;
+//     }
+//     if (sumX + sumO === 9 && sumX > sumO) console.log(`1: Х виграв!`);
+//     if (sumX + sumO === 9 && sumX < sumO) console.log(`2: 0 виграв!`);
+//     if (sumX + sumO === 9 && sumX === sumO) console.log(`0: Нічия!`); // НЕ МОЖЕ БУТИ! ))
+// }
 
 // document.querySelector("#winner").innerHTML = `-1: гра триває!`;
+
+// ------ правильний варіант гри
+
+const newGameArray = userGameArray.reduce(function (result, current) {return result.concat(current); }, []);
+
+if (newGameArray.includes(0)) {
+    console.log(`-1: гра триває!`);
+}
